@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.patrick.madskills.rest.CategoryRest;
+
 
 /**
  * Handles requests for the application home page.
@@ -31,14 +31,14 @@ public class HomeController {
 		return "categories";
 	}
 	
-    @RequestMapping(value = "/rest", method = RequestMethod.GET)
+/*    @RequestMapping(value = "/rest", method = RequestMethod.GET)
     public @ResponseBody CategoryRest getCategory() {
 		
     	CategoryRest cat = new CategoryRest("Bob");
     	
     	return cat;
 
-    }
+    }*/
      
 	
 }

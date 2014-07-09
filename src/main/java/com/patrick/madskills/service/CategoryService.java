@@ -22,11 +22,11 @@ public class CategoryService {
 		    return categoryRepository.save(t);
 		  }
 		 
-		  public void delete(Long id) {
+		  public void delete(int id) {
 			  categoryRepository.delete(id);
 		  }
 		 
-		  public Category findOne(Long id) {
+		  public Category findOne(int id) {
 		    return categoryRepository.findOne(id);
 		  }
 
