@@ -10,11 +10,11 @@ import com.patrick.madskills.repository.CategoryRepository;
 
 @Service
 public class CategoryService {
-	
+
 	@Autowired 
 	CategoryRepository categoryRepository;
 	
-	  public List<Category> findAll() {
+	  	public List<Category> findAll() {
 		    return categoryRepository.findAll();
 		  }
 		 

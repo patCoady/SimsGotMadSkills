@@ -12,5 +12,16 @@
 </head>
 <body>
 	<button id ="restTest" >REST</button>
+	
+	<table>
+		<tr>
+			<th>Category</th>
+		</tr>
+		<c:forEach items = "${categories}" var = "category">
+		<tr>
+			<td>${category.name}</td>
+		</tr>
+		</c:forEach>
+	</table>
 </body>
 </html>

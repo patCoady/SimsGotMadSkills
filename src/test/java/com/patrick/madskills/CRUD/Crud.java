@@ -6,11 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.patrick.madskills.domain.Category;
 import com.patrick.madskills.service.CategoryService;
 
 public class Crud {
+	
+	@Autowired
 	private CategoryService service;
 /*	@Test
 	public void test() {
@@ -18,9 +21,7 @@ public class Crud {
 	}*/
 	@Test
 	public void selectTest(){
-		System.out.println("test");
-		List<Category> categorytest = this.service.findAll();
-		System.out.println("test");
+			List<Category> categorytest = this.service.findAll();
 	}
 
 }
