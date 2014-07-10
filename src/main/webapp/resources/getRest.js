@@ -1,16 +1,22 @@
 $.getScript("resources/json.min.js", function(){
-	var categoriesRest = "http://localhost:8080/SimGotMadSkills/rest";
-	$('#restTest').click(function() {
-		alert("woo");
+	var categoriesRest = "http://localhost:8080/SimsGotMadSkills/rest/category";
+	
+	$('#addCategory').click(function(){
+		var jsonData = {name:$("#categoryName").val()};
+		/*alert(JSON.stringify(jsonData));*/
 		$.ajax({
-			type : "GET",
-			dataType : "charset=utf-8", 
-			url : categoriesRest,
-			success : function(data) {
-				alert(data);
-				//$("#googleBooksData").val(data);
-			}
-		});
+			  type: "POST",
+			  url: categoriesRest,
+			  data: JSON.stringify(jsonData),
+			  contentType: "application/json",
+			  success: function(data){
+				  //alert(data);\
+				  },
+			  failure: function(errMsg) {
+			        alert(errMsg);
+			    }
+		
+			});
 	});
 
 });

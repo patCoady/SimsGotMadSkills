@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
@@ -21,21 +23,28 @@ public class Category{
 	@Column(name = "name", nullable = false, length =45)
 	private String name;
 	
-	@Column(name = "parentid")
-	private Integer parentid;
+	@ManyToOne
+	@JoinColumn(name = "parentid", referencedColumnName = "id")
+	private Category parentCategory;
 	
 	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getParentid() {
-		return parentid;
+	public Category getparentCategory() {
+		return parentCategory;
 	}
-	public void setParentid(int parentid) {
-		this.parentid = parentid;
+	public void setparentCategory(Category parentCategory) {
+		this.parentCategory = parentCategory;
 	}
 	
 	

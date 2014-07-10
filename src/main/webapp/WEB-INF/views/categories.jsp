@@ -11,8 +11,6 @@
 	src="<c:url value="/resources/getRest.js" />"></script>
 </head>
 <body>
-	<button id ="restTest" >REST</button>
-	
 	<table>
 		<tr>
 			<th>Category</th>
@@ -23,5 +21,14 @@
 		</tr>
 		</c:forEach>
 	</table>
+	<!-- value ="${category.id}" -->
+	<input type ="text" id ="categoryName"/>
+	<select id ="parentCategory">
+		<option>...</option>
+		<c:forEach items = "${categories}" var = "category">
+			<option value ="${category.id}"> ${category.name}</option>
+		</c:forEach>
+	</select>
+	<button id ="addCategory">Submit</button>
 </body>
 </html>
