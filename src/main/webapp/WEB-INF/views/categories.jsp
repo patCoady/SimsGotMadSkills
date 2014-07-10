@@ -14,21 +14,32 @@
 	<table>
 		<tr>
 			<th>Category</th>
+			<th>Parent Category</th>
 		</tr>
-		<c:forEach items = "${categories}" var = "category">
-		<tr>
-			<td>${category.name}</td>
-		</tr>
+		<c:forEach items="${categories}" var="category">
+			<tr>
+					<td id ="name-${category.id}">${category.name}</td>
+					<td id ="parentName-${category.id}" title = "${category.parentCategory.id}">${category.parentCategory.name}</td>
+					<td id = "buttonSpot-${category.id}">
+						<button id ="editButton-${category.id}">Edit</button>
+						<button id ="submitButton-${category.id}" style = "display: none;">Submit</button>
+						<button id ="deleteButton-${category.id}" style = "display: none;">Delete</button>
+					</td>
+					
+			</tr>
 		</c:forEach>
+		
 	</table>
+	<div id ="test"></div>
 	<!-- value ="${category.id}" -->
-	<input type ="text" id ="categoryName"/>
-	<select id ="parentCategory">
-		<option>...</option>
-		<c:forEach items = "${categories}" var = "category">
-			<option value ="${category.id}"> ${category.name}</option>
+	<input type="text" id="categoryName" />
+	<select id="parentCategory">
+		<option value="noParent">...</option>
+
+		<c:forEach items="${categories}" var="category">
+			<option value="${category.id}">${category.name}</option>
 		</c:forEach>
 	</select>
-	<button id ="addCategory">Submit</button>
+	<button id="addCategory">Submit</button>
 </body>
 </html>

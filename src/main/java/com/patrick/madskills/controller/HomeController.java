@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -52,8 +53,19 @@ public class HomeController {
 	@RequestMapping(value = "/rest/category", method = RequestMethod.POST, headers = { "Content-type=application/json" })
 	public @ResponseBody
 	void setCategory(@RequestBody Category category) {
-		logger.info("cat:" + category.getName());
 		categoryService.save(category);
+	}
+	@RequestMapping(value = "/rest/category/{categoryId}", method = RequestMethod.PUT, headers = { "Content-type=application/json" })
+	public @ResponseBody void updateCategory(@PathVariable("categoryId") int categoryId,@RequestBody Category updatedCategory){
+		//logger.info("id:"+categoryId+"NAME: "+ updatedCategory.getName());
+		categoryService.save(updatedCategory);
+		
+	}
+	@RequestMapping(value = "/rest/category/{categoryId}", method = RequestMethod.DELETE, headers = { "Content-type=application/json" })
+	public @ResponseBody void deleteCategory(@PathVariable("categoryId") int categoryId){
+		//logger.info("id:"+categoryId+"NAME: "+ updatedCategory.getName());
+		categoryService.delete(categoryId);
+		
 	}
 
 }

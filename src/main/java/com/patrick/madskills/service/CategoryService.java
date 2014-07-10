@@ -19,7 +19,7 @@ public class CategoryService {
 		  }
 		 
 		  public Category save(Category t) {
-		    return categoryRepository.save(t);
+		    return categoryRepository.saveAndFlush(t);
 		  }
 		 
 		  public void delete(int id) {

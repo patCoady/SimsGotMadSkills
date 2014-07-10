@@ -28,6 +28,8 @@ public class Category{
 	private Category parentCategory;
 	
 	
+	/*private Integer parentId;*/
+	
 	public Integer getId() {
 		return id;
 	}
@@ -40,12 +42,19 @@ public class Category{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Category getparentCategory() {
+	public Category getParentCategory() {
 		return parentCategory;
 	}
-	public void setparentCategory(Category parentCategory) {
+	public void setParentCategory(Category parentCategory) {
 		this.parentCategory = parentCategory;
 	}
+/*	public Integer getParentId() {
+		return parentId;
+	}
+	public void setParentId(Integer parentId) {
+		this.parentId = parentId;
+	}*/
+
 	
 	
 }
