@@ -10,7 +10,7 @@ $.getScript("resources/json.min.js", function(){
 			  data: JSON.stringify(jsonData),
 			  contentType: "application/json",
 			  success: function(data){
-				  //alert(data);\
+				  location.reload();
 				  },
 			  failure: function(errMsg) {
 			        alert(errMsg);
@@ -69,7 +69,7 @@ $.getScript("resources/json.min.js", function(){
 			  data: JSON.stringify(jsonData),
 			  contentType: "application/json",
 			  success: function(data){
-				  //alert(data);\
+				  location.reload();
 				  },
 			  failure: function(errMsg) {
 			        alert(errMsg);
@@ -84,7 +84,7 @@ $.getScript("resources/json.min.js", function(){
 			  url: skillsRest.concat("/").concat(splitId[1]),
 			  contentType: "application/json",
 			  success: function(data){
-				  //alert(data);\
+				  location.reload();
 				  },
 			  failure: function(errMsg) {
 			        alert(errMsg);

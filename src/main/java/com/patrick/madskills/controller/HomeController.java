@@ -105,5 +105,14 @@ public class HomeController {
 		return "employee";
 	}
 
+	@RequestMapping(value = "/rest/employee", method = RequestMethod.POST, headers = { "Content-type=application/json" })
+	public @ResponseBody void setEmployee(@RequestBody Employee employee) {
+		employeeService.save(employee);
+	}
+	@RequestMapping(value = "/rest/employee/{employeeId}", method = RequestMethod.PUT, headers = { "Content-type=application/json" })
+	public @ResponseBody void updateEmployee(@PathVariable("employeeId") int employeeId,@RequestBody Employee updatedEmployee){
+		employeeService.save(updatedEmployee);
+		
+	}
 
 }

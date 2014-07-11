@@ -16,7 +16,7 @@ $.getScript("resources/json.min.js", function(){
 			  data: JSON.stringify(jsonData),
 			  contentType: "application/json",
 			  success: function(data){
-				  //alert(data);\
+				  location.reload();
 				  },
 			  failure: function(errMsg) {
 			        alert(errMsg);
@@ -70,14 +70,13 @@ $.getScript("resources/json.min.js", function(){
 		else{
 			 jsonData = {id:splitId[1], name:$("#inputName-".concat(splitId[1])).val()};
 		}	
-		alert(JSON.stringify(jsonData));
 		$.ajax({
 			  type: "PUT",
 			  url: categoriesRest.concat("/").concat(splitId[1]),
 			  data: JSON.stringify(jsonData),
 			  contentType: "application/json",
 			  success: function(data){
-				  //alert(data);\
+				  location.reload();
 				  },
 			  failure: function(errMsg) {
 			        alert(errMsg);
@@ -91,7 +90,7 @@ $.getScript("resources/json.min.js", function(){
 			  url: categoriesRest.concat("/").concat(splitId[1]),
 			  contentType: "application/json",
 			  success: function(data){
-				  //alert(data);\
+				  location.reload();
 				  },
 			  failure: function(errMsg) {
 			        alert(errMsg);
