@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.patrick.madskills.domain.Category;
+import com.patrick.madskills.domain.Skills;
 import com.patrick.madskills.service.CategoryService;
+import com.patrick.madskills.service.SkillsService;
 
 /**
  * Handles requests for the application home page.
@@ -28,6 +30,9 @@ public class HomeController {
 
 	@Autowired
 	CategoryService categoryService;
+	
+	@Autowired
+	SkillsService skillsService;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
@@ -66,6 +71,17 @@ public class HomeController {
 		//logger.info("id:"+categoryId+"NAME: "+ updatedCategory.getName());
 		categoryService.delete(categoryId);
 		
+	}
+	
+	@RequestMapping(value = "/skills", method = RequestMethod.GET)
+	public String skills(Model model) {
+		List<Skills> skills = skillsService.findAll();
+		model.addAttribute("skills", skills);
+		return "skills";
+	}
+	@RequestMapping(value = "/rest/skills", method = RequestMethod.POST,  headers = { "Content-type=application/json" })
+	public void setSkills(@RequestBody Skills skill) {
+		skillsService.save(skill);
 	}
 
 }

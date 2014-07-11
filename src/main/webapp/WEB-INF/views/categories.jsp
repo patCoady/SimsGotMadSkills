@@ -8,7 +8,7 @@
 <script type="text/javascript"
 	src="<c:url value="/resources/jquery-1.4.min.js" />"></script>
 <script type="text/javascript"
-	src="<c:url value="/resources/getRest.js" />"></script>
+	src="<c:url value="/resources/categoryRest.js" />"></script>
 </head>
 <body>
 	<table>
