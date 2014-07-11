@@ -15,8 +15,8 @@
 	<button type = "submit">View Skillz</button>
 </form>
 
-
-<input type = "text" id = "skillName"/>
-<button id ="addSkill">Add Skill</button>
+<form method ="GET" action ="employee" name = "employee">
+	<button type = "submit">View Employees</button>
+</form>
 </body>
 </html>

@@ -86,7 +86,6 @@ $.getScript("resources/json.min.js", function(){
 			});
 	}
 	function deleteCategory(splitId){
-		alert("wow");
 		$.ajax({
 			  type: "DELETE",
 			  url: categoriesRest.concat("/").concat(splitId[1]),

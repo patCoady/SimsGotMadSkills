@@ -14,19 +14,30 @@
 	<h1>Some Mad Skillz</h1>
 	<table>
 		<tr>
-			<th>Name</th> <th>Category</th>
+			<th>Name</th>
+			<th>Category</th>
 		</tr>
-		<c:forEach items = "${skills}" var = "skill">
+		<c:forEach items="${skills}" var="skill">
 			<tr>
-				<td>${skill.name}</td>
-				<td>${skill.category.name}</td>
+				<td id = "name-${skill.id}">${skill.name}</td>
+				<td id = "categoryName-${skill.id}" title = "${skill.category.id}">${skill.category.name}</td>
+				<td>
+					<button id = "editBtn-${skill.id}">Edit</button>
+					<button id = "submitBtn-${skill.id}" style = "display: none;">Submit</button>
+					<button id = "deleteBtn-${skill.id}" style = "display: none;"> Delete</button>
+				</td>
 			</tr>
 		</c:forEach>
 	</table>
-	
-	
-	
-	<input type = "text" id = "newSkill"/>
-	<button id = "submitSkill">Submit</button>
+
+
+
+	<input type="text" id="skillName" />
+	<select id="skillCategory">
+		<c:forEach items="${categories}" var="category">
+			<option value="${category.id}">${category.name}</option>
+		</c:forEach>
+	</select>
+	<button id="submitSkill">Submit</button>
 </body>
 </html>
