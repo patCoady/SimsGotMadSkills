@@ -35,7 +35,7 @@ $.getScript("resources/json.min.js", function(){
 		}else if(splitId[0]=="submitButton"){
 			submit(splitId);
 		}else if(splitId[0]=="deleteButton"){
-			deleteCategory(splitId)
+			deleteCategory(splitId);
 		}
 	});
 	

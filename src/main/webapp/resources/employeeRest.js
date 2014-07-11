@@ -77,7 +77,18 @@ $.getScript("resources/json.min.js", function(){
 			});
 	}
 	function deleteEmployee(splitId){
+		$.ajax({
+			  type: "DELETE",
+			  url: employeeRest.concat("/").concat(splitId[1]),
+			  contentType: "application/json",
+			  success: function(data){
+				  location.reload();
+				  },
+			  failure: function(errMsg) {
+			        alert(errMsg);
+			    }
 		
+			});
 	}
 	
 	

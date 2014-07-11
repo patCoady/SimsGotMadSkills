@@ -114,5 +114,10 @@ public class HomeController {
 		employeeService.save(updatedEmployee);
 		
 	}
+	@RequestMapping(value = "/rest/employee/{employeeId}", method = RequestMethod.DELETE, headers = { "Content-type=application/json" })
+	public @ResponseBody void deleteEmployee(@PathVariable("employeeId") int employeeId){
+		employeeService.delete(employeeId);
+		
+	}
 
 }
