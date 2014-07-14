@@ -32,6 +32,9 @@ $.getScript("resources/json.min.js", function(){
 			case "deleteBtn":
 				deleteEmployee(splitId);
 				break;
+			case "editSkillsBtn":
+				editSkills(splitId)
+				break;
 			default:
 				alert("default");
 				
@@ -52,6 +55,7 @@ $.getScript("resources/json.min.js", function(){
 		
 		//Remove edit button
 		$("#editBtn-".concat(splitId[1])).remove();
+		$("#editSkillsBtn-".concat(splitId[1])).remove();
 		//Create submit button
 		//Add submit button to table
 		$("#submitBtn-".concat(splitId[1])).show();
@@ -89,6 +93,15 @@ $.getScript("resources/json.min.js", function(){
 			    }
 		
 			});
+	}
+	
+	function editSkills(splitId){
+		$("#editBtn-".concat(splitId[1])).remove();
+		$("#editSkillsBtn-".concat(splitId[1])).remove();
+		//$("#showSkills-".concat(splitId[1])).remove();
+		
+		$("#submitSkillsBtn-".concat(splitId[1])).show();
+		$("#selectSkills-".concat(splitId[1])).show();
 	}
 	
 	

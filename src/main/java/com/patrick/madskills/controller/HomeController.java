@@ -1,5 +1,6 @@
 package com.patrick.madskills.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -16,9 +17,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.patrick.madskills.domain.Category;
 import com.patrick.madskills.domain.Employee;
+import com.patrick.madskills.domain.EmployeeSkills;
 import com.patrick.madskills.domain.Skills;
 import com.patrick.madskills.service.CategoryService;
 import com.patrick.madskills.service.EmployeeService;
+import com.patrick.madskills.service.EmployeeSkillsService;
 import com.patrick.madskills.service.SkillsService;
 
 /**
@@ -39,6 +42,9 @@ public class HomeController {
 	@Autowired
 	EmployeeService employeeService;
 
+	@Autowired
+	EmployeeSkillsService employeeSkillsService;
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
 
@@ -100,7 +106,15 @@ public class HomeController {
 	
 	@RequestMapping(value = "/employee", method = RequestMethod.GET)
 	public String employees(Model model) {
+		//Get all employees
 		List<Employee> employee = employeeService.findAll();
+		List<Skills> skills = skillsService.findAll();
+		//For each employee add their skills
+		for(int i=0; i <employee.size();i++){
+			//Add skills to employee
+			employee.get(i).setSkills(employeeSkillsService.findByEmployee(employee.get(i).getId()));
+		}
+		model.addAttribute("skills", skills);
 		model.addAttribute("employees", employee);
 		return "employee";
 	}
@@ -117,7 +131,6 @@ public class HomeController {
 	@RequestMapping(value = "/rest/employee/{employeeId}", method = RequestMethod.DELETE, headers = { "Content-type=application/json" })
 	public @ResponseBody void deleteEmployee(@PathVariable("employeeId") int employeeId){
 		employeeService.delete(employeeId);
-		
 	}
 
 }

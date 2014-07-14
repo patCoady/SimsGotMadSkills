@@ -1,11 +1,15 @@
 package com.patrick.madskills.domain;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedNativeQuery;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "employee")
@@ -27,7 +31,10 @@ public class Employee {
 	
 	@Column(name = "skype_name", nullable = false)
 	private String skypeName;
-
+	
+	@Transient
+	private List<EmployeeSkills> skills;
+	
 	public int getId() {
 		return id;
 	}
@@ -67,6 +74,16 @@ public class Employee {
 	public void setSkypeName(String skypeName) {
 		this.skypeName = skypeName;
 	}
+
+	public List<EmployeeSkills> getSkills() {
+		return skills;
+	}
+
+	public void setSkills(List<EmployeeSkills> skills) {
+		this.skills = skills;
+	}
+	
+	
 	
 	
 	
