@@ -33,7 +33,10 @@ $.getScript("resources/json.min.js", function(){
 				deleteEmployee(splitId);
 				break;
 			case "editSkillsBtn":
-				editSkills(splitId)
+				editSkills(splitId);
+				break;
+			case "submitSkillsBtn":
+				submitSkills(splitId);
 				break;
 			default:
 				alert("default");
@@ -103,6 +106,23 @@ $.getScript("resources/json.min.js", function(){
 		$("#submitSkillsBtn-".concat(splitId[1])).show();
 		$("#selectSkills-".concat(splitId[1])).show();
 	}
+	function submitSkills(splitId){
+		var skillId = {id: $("#selectSkills-".concat(splitId[1])).val()};
+		var employeeId = {id: splitId[1]};
+		jsonData = {skill: skillId, employee: employeeId};
+		$.ajax({
+			  type: "POST",
+			  url: employeeRest.concat("/skills/"),
+			  data: JSON.stringify(jsonData),
+			  contentType: "application/json",
+			  success: function(data){
+				  location.reload();
+				  },
+			  failure: function(errMsg) {
+			        alert(errMsg);
+			    }
+	});
+	};
 	
 	
 	

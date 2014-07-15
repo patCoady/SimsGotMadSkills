@@ -132,5 +132,15 @@ public class HomeController {
 	public @ResponseBody void deleteEmployee(@PathVariable("employeeId") int employeeId){
 		employeeService.delete(employeeId);
 	}
+	@RequestMapping(value = "/rest/employee/skills", method = RequestMethod.POST, headers = { "Content-type=application/json" })
+	public @ResponseBody void updateEmployeeSkills(@RequestBody EmployeeSkills updatedEmployeeSkills){
+		logger.info("Emp ID: "+updatedEmployeeSkills.getEmployee().getId());
+		logger.info("Skill ID: "+updatedEmployeeSkills.getSkill().getId());
+		
+		updatedEmployeeSkills.setSkill(skillsService.findOne(updatedEmployeeSkills.getSkill().getId()));
+		updatedEmployeeSkills.setEmployee((employeeService.findOne(updatedEmployeeSkills.getEmployee().getId())));
+		employeeSkillsService.save(updatedEmployeeSkills);
+		
+	}
 
 }

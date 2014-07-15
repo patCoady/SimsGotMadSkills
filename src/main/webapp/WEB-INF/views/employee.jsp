@@ -24,7 +24,7 @@
 				<td> 
 				<select id = "selectSkills-${employee.id}" style = "display: none;" >
 					<c:forEach items = "${skills}" var ="skill">
-						<option>${skill.name}</option>
+						<option value ="${skill.id}">${skill.name}</option>
 					</c:forEach>
 				</select>
 				<div id = "showSkills-${employee.id}">
